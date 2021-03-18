@@ -24,6 +24,7 @@ rm -rf $HOME/.miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
 chmod +x miniconda.sh
 bash miniconda.sh -b -p $HOME/.miniconda3
+rm miniconda.sh
 
 # Kite autocompletion
 yes | bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
