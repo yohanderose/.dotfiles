@@ -1,20 +1,24 @@
 #!/bin/sh
 
-# First install fish, tmux and vim using whatever package manager.
+# First install fish, tmux and vim/nvim using whatever package manager.
 # Then npm, yarn and yapf
 
 # Create links to config files
 rm ~/.config/fish/config.fish
-rm ~/.vimrc
+rm ~/.config/nvim/init.vim
+#rm ~/.vimrc
 rm ~/.tmux.conf
 echo source ~/.dotfiles/config.fish >> ~/.config/fish/config.fish
-echo so ~/.dotfiles/vimrc >> ~/.vimrc
+echo source ~/.dotfiles/init.vim >> ~/.config/nvim/init.vim
+#echo so ~/.dotfiles/vimrc >> ~/.vimrc
 echo so ~/.dotfiles/tmux.conf  >> ~/.tmux.conf
 
-# Vim packages
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +'PlugInstall --sync' +qa
+# Vim/Nvim packages
+#curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    #https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+nvim +'PlugInstall --sync' +qa
 
 # Starship prompt
 yes | curl -fsSL https://starship.rs/install.sh | bash
@@ -27,4 +31,4 @@ bash miniconda.sh -b -p $HOME/.miniconda3
 rm miniconda.sh
 
 # Kite autocompletion
-yes | bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
+#yes | bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"

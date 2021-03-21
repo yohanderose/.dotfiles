@@ -15,13 +15,12 @@ syntax on
 set backspace=indent,eol,start
 set paste
 
-call plug#begin('~/.vim/plugged/')
+call plug#begin('~/.vim/plugged')
 
 " Layout
 Plug 'arcticicestudio/nord-vim'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'dense-analysis/ale'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'dense-analysis/ale'
 
 " Navigation
 Plug 'bling/vim-bufferline'
@@ -39,42 +38,25 @@ call plug#end()
 
 colorscheme nord
 
-" Code linting and formatting
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
-let b:ale_linters = {
-	\   'python': ['yapf'],
-	\   'c++': ['g++'],
-\}
+" Ale linting and formatting
 let g:ale_fixers = {
 	\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 	\   'python': ['yapf'],
 	\   'c++': ['g++'],
 \}
 let g:ale_fix_on_save = 1
-nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
-nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
-
-" Kite / CoC Autocomplete and navigating
-" source ~/.dotfiles/cocrc.vim
-"let g:coc_global_extensions = [
-	"\ 'coc-sh',
-	"\ 'coc-cmake',
-	"\ 'coc-html',
-	"\ 'coc-css',
-	"\ 'coc-tsserver',
-	"\ 'coc-json',
-	"\ 'coc-flutter'
-"\]
-let g:kite_supported_languages = ['*']
-let g:kite_tab_complete=1
-set completeopt+=menuone
-set completeopt+=noinsert
-set completeopt-=preview
-set shortmess=a
-set cmdheight=2
-"set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
+" Kite / CoC autocomplete and navigating
+source ~/.dotfiles/cocrc.vim
+let g:coc_global_extensions = [
+	\ 'coc-pyright',
+	\ 'coc-clangd',
+	\ 'coc-sh',
+	\ 'coc-json',
+	\ 'coc-html',
+	\ 'coc-css',
+	\ 'coc-tsserver'
+\]
 
 " Indentation guide lines
 let g:indent_guides_enable_on_vim_startup = 1
