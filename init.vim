@@ -1,6 +1,3 @@
-"TODO: - fix coc autocompletion
-	  "- find how to specify clang header file dir
-
 packloadall
 set rnu nu
 syntax on
