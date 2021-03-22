@@ -1,3 +1,6 @@
+"TODO: - fix coc autocompletion
+	  "- find how to specify clang header file dir
+
 packloadall
 set rnu nu
 syntax on
@@ -13,14 +16,18 @@ set nospell
 filetype plugin indent on
 syntax on
 set backspace=indent,eol,start
-set paste
+"set paste
+set nohlsearch
+set hidden
+set pyx=3
+set bg=dark
+set termguicolors
 
 call plug#begin('~/.vim/plugged')
 
 " Layout
 Plug 'arcticicestudio/nord-vim'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'dense-analysis/ale'
 
 " Navigation
 Plug 'bling/vim-bufferline'
@@ -32,24 +39,18 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kamykn/spelunker.vim'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 call plug#end()
 
+lua require'colorizer'.setup()
 colorscheme nord
 
-" Ale linting and formatting
-let g:ale_fixers = {
-	\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-	\   'python': ['yapf'],
-	\   'c++': ['g++'],
-\}
-let g:ale_fix_on_save = 1
-
-" Kite / CoC autocomplete and navigating
+" CoC autocomplete, linting, fixing and navigating
 source ~/.dotfiles/cocrc.vim
 let g:coc_global_extensions = [
-	\ 'coc-pyright',
+	\ 'coc-python',
 	\ 'coc-clangd',
 	\ 'coc-sh',
 	\ 'coc-json',
@@ -57,6 +58,7 @@ let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-tsserver'
 \]
+autocmd BufWritePre *.py,*.cpp,*.h Format
 
 " Indentation guide lines
 let g:indent_guides_enable_on_vim_startup = 1
@@ -71,7 +73,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " Refactor word
-let g:coc_disable_startup_warning = 1
+"let g:coc_disable_startup_warning = 1
 nnoremap <leader>rw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 " Status bar and buffers
@@ -96,4 +98,12 @@ nnoremap <Leader>- :bd<CR>
 nnoremap <silent><C-p> :GFiles<CR>
 nnoremap <C-g> :Ag<Cr>
 let FZF_DEFAULT_COMMAND='fg --hidden --ignore -l ""'
-set hidden
+
+" Autoclose brackets in insert mode
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O

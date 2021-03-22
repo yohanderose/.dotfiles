@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # First install fish, tmux and vim/nvim using whatever package manager.
-# Then npm, yarn and yapf
+# Then npm, yarn and autopep8
 
 # Create links to config files
 rm ~/.config/fish/config.fish
