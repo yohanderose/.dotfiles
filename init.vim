@@ -16,7 +16,6 @@ set backspace=indent,eol,start
 "set paste
 set nohlsearch
 set hidden
-set pyx=3
 set bg=dark
 set termguicolors
 

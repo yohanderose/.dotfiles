@@ -4,10 +4,12 @@
 # Then npm, yarn and autopep8
 
 # Create links to config files
-rm ~/.config/fish/config.fish
-rm ~/.config/nvim/init.vim
+rm -rf ~/.config/fish
+rm -rf ~/.config/nvim
 #rm ~/.vimrc
 rm ~/.tmux.conf
+mkdir ~/.config/fish
+mkdir ~/.config/nvim
 echo source ~/.dotfiles/config.fish >> ~/.config/fish/config.fish
 echo source ~/.dotfiles/init.vim >> ~/.config/nvim/init.vim
 #echo so ~/.dotfiles/vimrc >> ~/.vimrc
@@ -16,6 +18,8 @@ echo so ~/.dotfiles/tmux.conf  >> ~/.tmux.conf
 # Vim/Nvim packages
 #curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     #https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# NodeJS for Coc
+curl -sL install-node.now.sh/lts | sudo bash
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim +'PlugInstall --sync' +qa
