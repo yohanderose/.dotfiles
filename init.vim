@@ -45,6 +45,7 @@ colorscheme nord
 
 " CoC autocomplete, linting, fixing and navigating
 source ~/.dotfiles/cocrc.vim
+let g:coc_disable_startup_warning = 1
 let g:coc_global_extensions = [
 	\ 'coc-python',
 	\ 'coc-clangd',

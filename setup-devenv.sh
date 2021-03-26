@@ -29,7 +29,13 @@ yes | curl -fsSL https://starship.rs/install.sh | bash
 
 # Install Minconda env manager
 rm -rf $HOME/.miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+if [[ "$OSTYPE" == "linux-gnueabi"* ]]; then
+	# RPi
+	wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh -O miniconda.sh
+else
+	# non-arm x64linux
+	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+fi
 chmod +x miniconda.sh
 bash miniconda.sh -b -p $HOME/.miniconda3
 rm miniconda.sh
