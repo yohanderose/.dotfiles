@@ -52,7 +52,8 @@ let g:coc_global_extensions = [
 	\ 'coc-json',
 	\ 'coc-html',
 	\ 'coc-css',
-	\ 'coc-tsserver'
+	\ 'coc-tsserver',
+	\ 'coc-flutter'
 \]
 autocmd BufWritePre *.py,*.cpp,*.h Format
 
@@ -103,3 +104,11 @@ inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
+
+" Pane switching
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
