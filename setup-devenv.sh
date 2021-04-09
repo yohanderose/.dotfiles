@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # First install fish, tmux and vim/nvim using whatever package manager.
-# Then npm, yarn and autopep8
+# Then npm/yarn, hub
 
 # Create links to config files
 rm -rf ~/.config/fish
@@ -40,5 +40,7 @@ chmod +x miniconda.sh
 bash miniconda.sh -b -p $HOME/.miniconda3
 rm miniconda.sh
 
-# Kite autocompletion
-#yes | bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
+# Install rest of workflow 
+pip3 install -U Commitizen autopep8 pylint
+rm ~/.gitconfig
+ln ~/.dotfiles/.gitconfig ~/.gitconfig

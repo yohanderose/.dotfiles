@@ -233,5 +233,5 @@ gaps inner 8
 gaps outer 0
 
 # Set wallpaper
-exec --no-startup-id ~/.dotfiles/nitrogen-wallpaper.sh
-#exec --no-startup-id ~/.dotfiles/blank-wallpaper.sh
+#exec --no-startup-id ~/.dotfiles/nitrogen-wallpaper.sh
+exec --no-startup-id ~/.dotfiles/blank-wallpaper.sh

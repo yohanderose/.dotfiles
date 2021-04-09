@@ -21,22 +21,31 @@ set termguicolors
 
 call plug#begin('~/.vim/plugged')
 
+" Admin
+Plug 'tpope/vim-fugitive'
+
 " Layout
 Plug 'arcticicestudio/nord-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 
-" Navigation
+" Navigating
 Plug 'bling/vim-bufferline'
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree'
 
-" Editing
+" General Editing
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kamykn/spelunker.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+" Language Specific Editing
+Plug 'dart-lang/dart-vim-plugin'
+
+" Writing
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -50,13 +59,15 @@ let g:coc_global_extensions = [
 	\ 'coc-python',
 	\ 'coc-clangd',
 	\ 'coc-sh',
+	\ 'coc-vimtex',
+	\ 'coc-docker',
 	\ 'coc-json',
 	\ 'coc-html',
 	\ 'coc-css',
 	\ 'coc-tsserver',
 	\ 'coc-flutter'
 \]
-autocmd BufWritePre *.py,*.cpp,*.h Format
+autocmd BufWritePre *.py,*.cpp,*.h,*.dart Format
 
 " Indentation guide lines
 let g:indent_guides_enable_on_vim_startup = 1
@@ -108,8 +119,26 @@ inoremap {;<CR> {<CR>};<ESC>O
 
 " Pane switching
 let g:tmux_navigator_no_mappings = 1
-
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+
+" Latex editing
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_mode=0
+let g:vimtex_mappings_enabled = 0
+let g:vimtex_log_ignore = [
+        \ 'Underfull',
+        \ 'Overfull',
+        \ 'specifier changed to',
+        \ 'Token not allowed in a PDF string',
+      \ ]
+let g:vimtex_context_pdf_viewer=1
+let g:vimtex_context_pdf_viewer= 'okular'
+nnoremap <Leader>w :VimtexCountWords<CR> 
+nnoremap <Leader>c :VimtexCompile<CR>
+nnoremap <Leader>i :VimtexTocToggle<CR> \| <C-h>
+nnoremap <Leader>p :VimtexView<CR> 
+nnoremap <Leader>x :VimtexClean<CR>
+"nnoremap <Leader>l :VimtexLabelsToggle<CR> 

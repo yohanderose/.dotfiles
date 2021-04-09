@@ -1,0 +1,12 @@
+[user]
+	email = yohanderose@gmail.com
+	name = Yohan de Rose
+[alias]
+	co = checkout
+	psh = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+	pll = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+	llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+	open = "!hub browse"
