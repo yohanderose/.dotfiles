@@ -43,6 +43,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Language Specific Editing
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
 " Writing
 Plug 'lervag/vimtex'
@@ -142,3 +143,6 @@ nnoremap <Leader>i :VimtexTocToggle<CR> \| <C-h>
 nnoremap <Leader>p :VimtexView<CR> 
 nnoremap <Leader>x :VimtexClean<CR>
 "nnoremap <Leader>l :VimtexLabelsToggle<CR> 
+
+" Python docstring format
+let g:pydocstring_formatter = 'sphinx'

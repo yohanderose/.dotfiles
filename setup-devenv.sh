@@ -40,7 +40,14 @@ chmod +x miniconda.sh
 bash miniconda.sh -b -p $HOME/.miniconda3
 rm miniconda.sh
 
-# Install rest of workflow 
-pip3 install -U Commitizen autopep8 pylint
+# Install git workflow 
+pip install -U Commitizen autopep8 pylint
 rm ~/.gitconfig
 ln ~/.dotfiles/.gitconfig ~/.gitconfig
+
+# Install bumblebee status bar and picom (i3)
+rm ~/.config/picom
+mkdir ~/.config/picom
+ln -s ~/.dotfiles/picom.conf ~/.config/picom/picom.conf 
+pip install bumblebee-status psutil netifaces
+
