@@ -190,10 +190,12 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	colors {
-        background #D8DEE9
+        background #3B4252
     }
+	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+    font pango:DejaVu Sans Mono 9
 	height 28
-	status_command bumblebee-status -m nic cpu memory \
+	status_command bumblebee-status -m  cpu memory nic\
 		pasink pasource battery datetime -p time.format="%H:%M" -t nord-powerline -p nic.states=^down 
 }
 
