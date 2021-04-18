@@ -191,12 +191,19 @@ bindsym $mod+r mode "resize"
 bar {
 	colors {
         background #3B4252
+
+		focused_workspace  #4c7899 #285577 #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        binding_mode       #2f343a #900000 #ffffff
     }
 	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
     font pango:DejaVu Sans Mono 9
 	height 28
-	status_command bumblebee-status -m  cpu memory nic\
-		pasink pasource battery datetime -p time.format="%H:%M" -t nord-powerline -p nic.states=^down 
+
+	status_command bumblebee-status -m  cpu memory \
+		nic pasink pasource battery datetime -p time.format="%H:%M" -t nord-powerline -p nic.states=^down 
 }
 
 # Avoids external monitor issues
@@ -230,7 +237,6 @@ exec --no-startup-id sudo redshift
 # Window gaps 
 for_window [class=".*"] border none
 default_orientation horizontal
-smart_gaps on
 gaps inner 10
 gaps outer 0
 
