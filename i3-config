@@ -201,6 +201,7 @@ bar {
 	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
     font pango:DejaVu Sans Mono 9
 	height 28
+	position top
 
 	status_command bumblebee-status -m  cpu memory \
 		nic pasink pasource battery datetime -p time.format="%H:%M" -t nord-powerline -p nic.states=^down 
@@ -234,14 +235,13 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
  # Night light
 exec --no-startup-id sudo redshift
 
-# Window gaps 
+# Window gaps and curved corners
 for_window [class=".*"] border none
 default_orientation horizontal
 gaps inner 10
 gaps outer 0
-
-# Set wallpaper
-#exec --no-startup-id ~/.dotfiles/nitrogen-wallpaper.sh
-exec --no-startup-id ~/.dotfiles/blank-wallpaper.sh
 exec --no-startup-id picom --experimental-backend
 
+# Set wallpaper
+exec --no-startup-id ~/.dotfiles/nitrogen-wallpaper.sh
+#exec --no-startup-id ~/.dotfiles/blank-wallpaper.sh
