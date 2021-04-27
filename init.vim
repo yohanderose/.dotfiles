@@ -145,4 +145,4 @@ nnoremap <Leader>x :VimtexClean<CR>
 "nnoremap <Leader>l :VimtexLabelsToggle<CR> 
 
 " Python docstring format
-let g:pydocstring_formatter = 'sphinx'
+"let g:pydocstring_formatter = 'sphinx'

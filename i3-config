@@ -204,7 +204,7 @@ bar {
 	position top
 
 	status_command bumblebee-status -m  cpu memory \
-		nic pasink pasource battery datetime -p time.format="%H:%M" -t nord-powerline -p nic.states=^down 
+		nic pasink pasource battery date time -p date.format="%a %d/%m/%y" -p time.format="%H:%M:%S"  -t nord-powerline -p nic.states=^down 
 }
 
 # Avoids external monitor issues
