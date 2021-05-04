@@ -204,7 +204,7 @@ bar {
 	position top
 
 	status_command bumblebee-status -m  cpu memory \
-		nic pasink pasource battery date time -p date.format="%a %d/%m/%y" -p time.format="%H:%M:%S"  -t nord-powerline -p nic.states=^down 
+		rss pasink pasource battery date time -p date.format="%a %d/%m/%y" -p time.format="%H:%M:%S"  -t nord-powerline -p nic.states=^down -p rss.feeds="https://tldr.tech/rss https://feeds.feedburner.com/TechCrunch.xml https://www.techmeme.com/feed.xml https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml" -p rss.length="80"
 }
 
 # Avoids external monitor issues
@@ -231,8 +231,7 @@ no_focus [class="plasmashell" window_type="notification"]
 # Kill cover-all window
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
-
- # Night light
+# Night light
 exec --no-startup-id sudo redshift
 
 # Window gaps and curved corners

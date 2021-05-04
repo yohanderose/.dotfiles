@@ -1,6 +1,7 @@
 channels:
   - conda-forge
   - defaults
+  - loop3d
 
 create_default_packages:
   - pylint

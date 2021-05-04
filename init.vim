@@ -63,12 +63,13 @@ let g:coc_global_extensions = [
 	\ 'coc-vimtex',
 	\ 'coc-docker',
 	\ 'coc-json',
+	\ 'coc-yaml',
 	\ 'coc-html',
 	\ 'coc-css',
 	\ 'coc-tsserver',
 	\ 'coc-flutter'
 \]
-autocmd BufWritePre *.py,*.cpp,*.h,*.dart Format
+autocmd BufWritePre *.py,*.cpp,*.h,*.dart,*.sh,*.yaml Format
 
 " Indentation guide lines
 let g:indent_guides_enable_on_vim_startup = 1
