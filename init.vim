@@ -44,6 +44,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " Language Specific Editing
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+Plug 'calviken/vim-gdscript3'
 
 " Writing
 Plug 'lervag/vimtex'
@@ -69,7 +70,7 @@ let g:coc_global_extensions = [
 	\ 'coc-tsserver',
 	\ 'coc-flutter'
 \]
-autocmd BufWritePre *.py,*.cpp,*.h,*.dart,*.sh,*.yaml Format
+autocmd BufWritePre *.py,*.cpp,*.h,*.dart, Format
 
 " Indentation guide lines
 let g:indent_guides_enable_on_vim_startup = 1
