@@ -2,6 +2,7 @@
 	email = yohanderose@gmail.com
 	name = Yohan de Rose
 [alias]
+	python = python3
 	co = checkout
 	psh = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
 	pll = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"

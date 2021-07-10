@@ -43,7 +43,6 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Language Specific Editing
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 Plug 'calviken/vim-gdscript3'
 
 " Writing
@@ -58,6 +57,7 @@ colorscheme nord
 source ~/.dotfiles/cocrc.vim
 let g:coc_disable_startup_warning = 1
 let g:coc_global_extensions = [
+	\ 'coc-snippets',
 	\ 'coc-python',
 	\ 'coc-clangd',
 	\ 'coc-sh',
