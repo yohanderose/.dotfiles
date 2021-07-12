@@ -52,6 +52,9 @@ pip install -U Commitizen autopep8 pylint
 rm ~/.gitconfig
 ln ~/.dotfiles/.gitconfig ~/.gitconfig
 
+# Link snippets into coc-snippet config
+ln -f snippets/markdown.snippets ~/.config/coc/ultisnips/markdown.snippets
+
 # Install bumblebee status bar and picom (i3)
 rm ~/.config/picom
 mkdir ~/.config/picom
@@ -60,4 +63,5 @@ ln -s ~/.dotfiles/picom.conf ~/.config/picom/picom.conf
 pip install bumblebee-status psutil netifaces
 
 # Set keyboard repeat (50) and delay (150ms) 
-echo xset r rate 150 50 >> ~/.xprofile                                                
+#echo xset r rate 150 50 >> ~/.xprofile                                                
+

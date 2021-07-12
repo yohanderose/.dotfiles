@@ -189,23 +189,22 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	height 30
+	position top
+	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+	font pango:DejaVu Sans Mono 9
+
 	colors {
-        background #3B4252
+		background #3B4252
 
 		focused_workspace  #4c7899 #285577 #ffffff
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-        binding_mode       #2f343a #900000 #ffffff
-    }
-	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-    font pango:DejaVu Sans Mono 9
-	height 28
-	position top
+		active_workspace   #333333 #5f676a #ffffff
+		inactive_workspace #333333 #222222 #888888
+		urgent_workspace   #2f343a #900000 #ffffff
+		binding_mode       #2f343a #900000 #ffffff
+	}
 
-	status_command bumblebee-status -m  cpu memory \
-		pasink pasource battery date time -p date.format="%a %d/%m/%y" -p time.format="%H:%M:%S" \
-		-t nord-powerline 
+	status_command bumblebee-status -m  cpu memory pasink pasource battery date time -p date.format="%a %d/%m/%y" -p time.format="%H:%M:%S" -t nord-powerline 
 }
 
 # Avoids external monitor issues
